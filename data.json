@@ -1,1 +1,44 @@
-content_of_your_file
+[
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "USD",
+        "buy": "3330",
+        "sell": "3280"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "EUR",
+        "buy": "3544",
+        "sell": "3480"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "SGD",
+        "buy": "2435",
+        "sell": "2375"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "MYR",
+        "buy": "718 ",
+        "sell": "704"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "CNY",
+        "buy": "455.00",
+        "sell": "445.00"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "THB",
+        "buy": "92.16",
+        "sell": "90.49"
+    },
+    {
+        "timestamp": "2024-02-06 17:19:00",
+        "currency": "JPN",
+        "buy": "22.42",
+        "sell": "22.00"
+    }
+]
