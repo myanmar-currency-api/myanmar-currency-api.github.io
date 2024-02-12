@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Myanmar Currency Exchange Rate api">
-    <meta property="og:description" content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK).">
-    <meta property="og:url" content="https://myanmar-currency-api.github.io/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Myanmar Currency Exchange Rate api" />
+    <meta
+      property="og:description"
+      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+    />
+    <meta property="og:url" content="https://myanmar-currency-api.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Myanmar Currency API Documentation">
-    <meta name="twitter:description" content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK).">
-    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Myanmar Currency API Documentation" />
+    <meta
+      name="twitter:description"
+      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+    />
 
     <!-- Other Meta Tags -->
-    <title>Myanmar Currency Exchange Rate Api Documentation | myanmar-currency-api.github.io</title>
-    <meta name="description" content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK).">
+    <title>
+      Myanmar Currency Exchange Rate Api Documentation |
+      myanmar-currency-api.github.io
+    </title>
+    <meta
+      name="description"
+      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+    />
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -39,14 +49,7 @@
         </div>
       </div>
     </nav>
-    <!-- Off-canvas menu -->
-    <div id="offCanvasMenu" class="off-canvas-menu">
-      <ul>
-        <li><a href="#" class="text-white">Home</a></li>
-        <li><a href="#apiDocs" class="text-white">API Docs</a></li>
-        <li><a href="#aboutUs" class="text-white">About</a></li>
-      </ul>
-    </div>
+
     <div class="container mx-auto py-8">
       <div class="bg-white p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-4">Latest Currency Exchange Rate</h2>
@@ -260,10 +263,16 @@
           window.location.reload(); // Reload the page
         });
 
+      // Function to update the title with individual exchange rate
+      function updateTitleWithExchangeRate(currency) {
+        document.title = `${currency.currency} - Buy: ${currency.buy}, Sell: ${currency.sell}`;
+      }
+
       // Fetch currency data from the API
       fetch("https://myanmar-currency-api.github.io/api/latest.json")
         .then((response) => response.json())
         .then((data) => {
+          // populate table
           const timestamp = data.timestamp;
           document.getElementById("timestamp").textContent = timestamp;
           const currencies = data.data;
@@ -276,6 +285,21 @@
                         <td class="border border-gray-300 px-4 py-2 text-center">${currency.sell}</td>
                     `;
             tableBody.appendChild(row);
+            // Update title with individual exchange rate
+            updateTitleWithExchangeRate(currency);
+          });
+
+          // Set interval to continuously update title with individual exchange rates
+          const intervalId = setInterval(() => {
+            const randomCurrencyIndex = Math.floor(
+              Math.random() * currencies.length
+            );
+            updateTitleWithExchangeRate(currencies[randomCurrencyIndex]);
+          }, 5000); // Update every 5 seconds
+
+          // Clear interval when the page is unloaded (user exits the page)
+          window.addEventListener("unload", () => {
+            clearInterval(intervalId);
           });
         })
         .catch((error) => console.error("Error fetching data:", error));
