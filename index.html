@@ -5,33 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Open Graph Meta Tags -->
+    <!-- HTML Meta Tags -->
+    <title>Myanmar Currency Exchange Rate api</title>
+    <meta
+      name="description"
+      content="Myanmar Currency Exchange Rate API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+    />
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://myanmar-currency-api.github.io" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="Myanmar Currency Exchange Rate api" />
     <meta
       property="og:description"
-      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+      content="Myanmar Currency Exchange Rate API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
     />
-    <meta property="og:url" content="https://myanmar-currency-api.github.io/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
+    <meta
+      property="og:image"
+      content="https://opengraph.b-cdn.net/production/documents/0260649e-4fa2-4cfc-94e2-6fe524ede4c5.png?token=FKSFbaaETxj-gyhHNjxu6uOHNe88iAQ-ciVNM-lLKK4&height=659&width=1200&expires=33243718730"
+    />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Myanmar Currency API Documentation" />
+    <meta property="twitter:domain" content="myanmar-currency-api.github.io" />
+    <meta
+      property="twitter:url"
+      content="https://myanmar-currency-api.github.io"
+    />
+    <meta name="twitter:title" content="Myanmar Currency Exchange Rate api" />
     <meta
       name="twitter:description"
-      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+      content="Myanmar Currency Exchange Rate API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
+    />
+    <meta
+      name="twitter:image"
+      content="https://opengraph.b-cdn.net/production/documents/0260649e-4fa2-4cfc-94e2-6fe524ede4c5.png?token=FKSFbaaETxj-gyhHNjxu6uOHNe88iAQ-ciVNM-lLKK4&height=659&width=1200&expires=33243718730"
     />
 
-    <!-- Other Meta Tags -->
-    <title>
-      Myanmar Currency Exchange Rate Api Documentation |
-      myanmar-currency-api.github.io
-    </title>
-    <meta
-      name="description"
-      content="The Myanmar Currency API provides real-time exchange rate data for various currencies against the Myanmar Kyat (MMK)."
-    />
+    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
     <!-- Tailwind CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
@@ -50,7 +61,7 @@
       </div>
     </nav>
 
-    <div class="container mx-auto py-8">
+    <div class="container mx-auto py-8" id="exchangeRate">
       <div class="bg-white p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-4">Latest Currency Exchange Rate</h2>
         <table class="w-full border-collapse border border-gray-300">
@@ -254,6 +265,34 @@
       </div>
     </section>
     <!-- JavaScript to fetch and display currency data -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      function captureAndConvertToBase64() {
+        html2canvas(document.getElementById("exchangeRate"))
+          .then(function (canvas) {
+            // Convert canvas to base64
+            const base64Image = canvas.toDataURL("image/png");
+            // Update meta tag with base64 image
+            document
+              .querySelector('meta[property="og:image"]')
+              .setAttribute("content", base64Image);
+            document
+              .querySelector('meta[name="twitter:image"]')
+              .setAttribute("content", base64Image);
+
+            
+            
+          })
+          .catch(function (error) {
+            console.error("Error capturing screenshot:", error);
+          });
+      }
+    </script>
     <script>
       // Reload the page when the "Home" link is clicked
       document
@@ -288,7 +327,7 @@
             // Update title with individual exchange rate
             updateTitleWithExchangeRate(currency);
           });
-
+          captureAndConvertToBase64();
           // Set interval to continuously update title with individual exchange rates
           const intervalId = setInterval(() => {
             const randomCurrencyIndex = Math.floor(
