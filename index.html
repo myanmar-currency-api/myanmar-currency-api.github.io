@@ -27,45 +27,6 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <style>
-      /* Custom styles for off-canvas menu */
-      .off-canvas-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 75%;
-        max-width: 250px;
-        height: 100%;
-        background-color: #333;
-        z-index: 999;
-        overflow-x: hidden;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .off-canvas-menu.show {
-        transform: translateX(0);
-      }
-
-      .off-canvas-menu.hide {
-        transform: translateX(-100%);
-      }
-
-      .off-canvas-menu ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .off-canvas-menu li {
-        padding: 1rem;
-      }
-
-      .off-canvas-menu a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 1.2rem;
-      }
-    </style>
   </head>
 
   <body class="bg-gray-100 font-sans">
