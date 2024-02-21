@@ -55,11 +55,11 @@
       <div class="container mx-auto flex justify-between items-center">
         <div>
           <a href="#" class="text-white font-bold" id="homeLink">Home</a>
-          <a href="#apiDocs" class="text-white font-bold ml-4">API Docs</a>
-          <a href="#aboutUs" class="text-white font-bold ml-4">About</a>
           <a href="#exchangeRateHistory" class="text-white font-bold ml-4"
             >History</a
           >
+          <a href="#apiDocs" class="text-white font-bold ml-4">API Docs</a>
+          <a href="#aboutUs" class="text-white font-bold ml-4">About</a>
         </div>
       </div>
     </nav>
@@ -88,7 +88,41 @@
         </p>
       </div>
     </div>
+    <section
+      id="exchangeRateHistory"
+      class="bg-white rounded-lg shadow-lg container mx-auto py-8"
+    >
+      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-gray-200 p-4">Column 1</div>
+        <div class="bg-gray-200 p-4">Column 2</div>
+      </div> -->
 
+      <h2 class="text-2xl font-bold pl-6">Exchange Rate History</h2>
+      <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
+        <div class="bg-white p-6 rounded-lg">
+          <h4 class="text-xl font-bold">Average Buy & Sell Price</h4>
+          <canvas
+            id="averageExchangeRateChart"
+            width="1200"
+            height="400"
+          ></canvas>
+          <!-- <canvas id="buyExchangeRateChart" width="800" height="400"></canvas> -->
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-6 rounded-lg">
+          <h4 class="text-xl font-bold">Buy Price</h4>
+          <canvas id="buyExchangeRateChart" width="800" height="400"></canvas>
+        </div>
+        <div class="bg-white p-6 rounded-lg">
+          <h4 class="text-xl font-bold">Sell Price</h4>
+          <canvas id="sellExchangeRateChart" width="800" height="400"></canvas>
+        </div>
+      </div>
+      <!-- <div class="bg-white p-6 rounded-lg shadow-lg">
+       
+      </div> -->
+    </section>
     <!-- API Docs Section -->
     <section id="apiDocs" class="container mx-auto py-8">
       <div class="bg-white p-6 rounded-lg shadow-lg">
@@ -267,41 +301,7 @@
         </p>
       </div>
     </section>
-    <section
-      id="exchangeRateHistory"
-      class="bg-white rounded-lg shadow-lg container mx-auto py-8"
-    >
-      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-gray-200 p-4">Column 1</div>
-        <div class="bg-gray-200 p-4">Column 2</div>
-      </div> -->
 
-      <h2 class="text-2xl font-bold pl-6">Exchange Rate History</h2>
-      <div class="grid grid-cols-1 md:grid-cols-1 gap-4">
-        <div class="bg-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold">Average Buy & Sell Price</h4>
-          <canvas
-            id="averageExchangeRateChart"
-            width="1200"
-            height="400"
-          ></canvas>
-          <!-- <canvas id="buyExchangeRateChart" width="800" height="400"></canvas> -->
-        </div>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="bg-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold">Buy Price</h4>
-          <canvas id="buyExchangeRateChart" width="800" height="400"></canvas>
-        </div>
-        <div class="bg-white p-6 rounded-lg">
-          <h4 class="text-xl font-bold">Sell Price</h4>
-          <canvas id="sellExchangeRateChart" width="800" height="400"></canvas>
-        </div>
-      </div>
-      <!-- <div class="bg-white p-6 rounded-lg shadow-lg">
-       
-      </div> -->
-    </section>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
