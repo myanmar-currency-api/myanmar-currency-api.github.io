@@ -315,31 +315,6 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.27.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
     <!-- JavaScript to fetch and display currency data -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
-      integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script>
-      function captureAndConvertToBase64() {
-        html2canvas(document.getElementById("exchangeRate"))
-          .then(function (canvas) {
-            // Convert canvas to base64
-            const base64Image = canvas.toDataURL("image/png");
-            // Update meta tag with base64 image
-            document
-              .querySelector('meta[property="og:image"]')
-              .setAttribute("content", base64Image);
-            document
-              .querySelector('meta[name="twitter:image"]')
-              .setAttribute("content", base64Image);
-          })
-          .catch(function (error) {
-            console.error("Error capturing screenshot:", error);
-          });
-      }
-    </script>
     <script>
       // Reload the page when the "Home" link is clicked
       document
@@ -374,7 +349,6 @@
             // Update title with individual exchange rate
             updateTitleWithExchangeRate(currency);
           });
-          captureAndConvertToBase64();
           // Set interval to continuously update title with individual exchange rates
           const intervalId = setInterval(() => {
             const randomCurrencyIndex = Math.floor(
