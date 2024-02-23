@@ -326,8 +326,8 @@
         });
 
       // Function to update the title with individual exchange rate
-      function updateTitleWithExchangeRate(currency) {
-        document.title = `${currency.currency} - Buy: ${currency.buy}, Sell: ${currency.sell}`;
+      function updateTitleWithExchangeRate(titleText) {
+        document.title = titleText;
       }
 
       // Fetch currency data from the API
@@ -341,15 +341,27 @@
           currencies.forEach((currency) => {
             
             // Update title with individual exchange rate
-            updateTitleWithExchangeRate(currency);
+            // updateTitleWithExchangeRate(currency);
           });
+         let titleText = currencies
+            .map(
+              (currency) =>
+                `${currency.currency} - Buy: ${currency.buy}, Sell: ${currency.sell}`
+            )
+            .join("---");
+          // Set interval to continuously update title with individual exchange rates
+
+
           // Set interval to continuously update title with individual exchange rates
           const intervalId = setInterval(() => {
             const randomCurrencyIndex = Math.floor(
               Math.random() * currencies.length
             );
-            updateTitleWithExchangeRate(currencies[randomCurrencyIndex]);
-          }, 5000); // Update every 5 seconds
+            titleText = titleText.substr(1) + titleText.substr(0, 1);
+
+            updateTitleWithExchangeRate(titleText.substr(0, 15));
+          }, 100); // Update every 5 seconds
+          
 
           // Clear interval when the page is unloaded (user exits the page)
           window.addEventListener("unload", () => {
