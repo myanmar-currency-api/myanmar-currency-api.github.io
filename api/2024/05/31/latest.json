@@ -1,0 +1,41 @@
+{
+    "data": [
+        {
+            "currency": "USD",
+            "buy": "4700",
+            "sell": "4640"
+        },
+        {
+            "currency": "EUR",
+            "buy": "4878",
+            "sell": "4706"
+        },
+        {
+            "currency": "SGD",
+            "buy": "3250",
+            "sell": "3190"
+        },
+        {
+            "currency": "MYR",
+            "buy": "990",
+            "sell": "980"
+        },
+        {
+            "currency": "CNY",
+            "buy": "608.00",
+            "sell": "588.0"
+        },
+        {
+            "currency": "THB",
+            "buy": "121.95",
+            "sell": "117.6="
+        },
+        {
+            "currency": "JPN",
+            "buy": "28.56",
+            "sell": "27.55_"
+        }
+    ],
+    "epoch": 1717129261.1919096,
+    "timestamp": "2024-05-31 10:51:01"
+}
